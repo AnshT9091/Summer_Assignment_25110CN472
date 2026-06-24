@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Ques103 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double balance = 100.0; // Starting balance
+        
+        System.out.println("Welcome to the Simple ATM!");
+        
+        while (true) {
+            System.out.println("\n1. Check Balance | 2. Deposit | 3. Withdraw | 4. Exit");
+            System.out.print("Choose an option: ");
+            int choice = scanner.nextInt();
+            
+            if (choice == 1) {
+                System.out.println("Your balance is: $" + balance);
+                
+            } else if (choice == 2) {
+                System.out.print("Enter amount to deposit: ");
+                double amount = scanner.nextDouble();
+                if (amount > 0) {
+                    balance += amount;
+                    System.out.println("Deposited $" + amount);
+                } else {
+                    System.out.println("Invalid amount.");
+                }
+                
+            } else if (choice == 3) {
+                System.out.print("Enter amount to withdraw: ");
+                double amount = scanner.nextDouble();
+                if (amount > 0 && amount <= balance) {
+                    balance -= amount;
+                    System.out.println("Withdrew $" + amount);
+                } else {
+                    System.out.println("Invalid amount or insufficient funds.");
+                }
+                
+            } else if (choice == 4) {
+                System.out.println("Goodbye!");
+                break; // Exits the while loop
+                
+            } else {
+                System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
+}
